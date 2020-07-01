@@ -1,0 +1,51 @@
+﻿@using System.Web.Mvc
+@using System.Collections.Generic
+@using ViewModel
+@model UserViewModel
+
+@{
+    Layout = "~/Views/Shared/_LMSLayout.cshtml";
+}
+
+<h4>Welcome @Model.Name</h4>
+@Html.Label("Day : ")
+@Model.CurrentDate
+<br />
+<br />
+
+@using (Html.BeginForm("SaveAttendance", "Employee", FormMethod.Post))
+{
+    @Html.Label("Enter today's Status : ")
+
+    @Html.DropDownListFor(m=>m.Status, new SelectList (Enum.GetValues(typeof(DailyStatus))),
+   "DailyStatus", new {@class = "form-control"})
+    <input type="submit" value="Submit" />
+}
+<h4>Daily Attendance</h4>
+<h5>
+    @Html.LabelFor(m => Model.CurrentWeek) : @Html.DropDownListFor(m => m.CurrentWeek, ViewBag.ListItem as SelectList, null, new { Class = "ddlStyle", id = "ddlEmployee" })
+</h5>
+<br />
+<div id="partialDiv">
+    @Html.Partial("_EmpAttPartial")
+</div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#ddlEmployee").on("change", function () {
+            $.ajax({
+                url: '/Employee/GetAttendance?SelectedIndex=' + $("#ddlEmployee option:selected").index(),
+                type: 'GET',
+                data: "",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $("#partialDiv").html(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        });
+    });
+</script>
+

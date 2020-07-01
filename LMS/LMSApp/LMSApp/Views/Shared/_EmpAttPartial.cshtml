@@ -1,0 +1,19 @@
+﻿@using ViewModel
+@using BusinessEntities
+@model UserViewModel
+
+<div>
+    <table border="1" align="left">
+        <tr>
+            <td>Day</td>
+            <td>Status</td>
+        </tr>
+        @foreach (EmployeeAttendance item in Model.Attendance)
+        {
+            <tr>
+                <td>@item.Date</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </table>
+</div>

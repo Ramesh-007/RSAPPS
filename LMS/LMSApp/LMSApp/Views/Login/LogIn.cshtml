@@ -1,0 +1,50 @@
+﻿@using ViewModel
+@model UserViewModel
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_LMSLayout.cshtml";
+}
+
+<style>
+    .container {
+        height: 200px;
+        position: relative;
+    }
+
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+@using (Html.BeginForm("DoLogin", "Login", FormMethod.Post))
+{
+    <div class="container">
+        <div class="center">
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => m.Name)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => m.Password)
+                    </td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password)
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <input type="submit" />
+        </div>
+    </div>
+}

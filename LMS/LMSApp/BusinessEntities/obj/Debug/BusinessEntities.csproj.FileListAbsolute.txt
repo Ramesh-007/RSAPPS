@@ -1,0 +1,6 @@
+D:\LMS\LMSApp\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\LMS\LMSApp\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\LMS\LMSApp\BusinessEntities\obj\Debug\BusinessEntities.csproj.CoreCompileInputs.cache
+D:\LMS\LMSApp\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\LMS\LMSApp\BusinessEntities\obj\Debug\BusinessEntities.pdb
+D:\LMS\LMSApp\BusinessEntities\bin\Debug\BusinessEntities.dll.config
